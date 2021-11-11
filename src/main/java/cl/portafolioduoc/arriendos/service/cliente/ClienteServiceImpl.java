@@ -1,6 +1,7 @@
 package cl.portafolioduoc.arriendos.service.cliente;
 
 import cl.portafolioduoc.arriendos.model.Cliente;
+import cl.portafolioduoc.arriendos.model.Login;
 import cl.portafolioduoc.arriendos.repository.cliente.ClienteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -44,4 +45,11 @@ public class ClienteServiceImpl implements ClienteService {
     public Map<String, Object> getByRut(String rut) {
         return clienteRepository.getByRut(rut);
     }
+
+    @Override
+    public Map<String, Object> login(Login login) {
+        return clienteRepository.login(login);
+    }
+
+
 }

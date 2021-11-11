@@ -1,6 +1,7 @@
 package cl.portafolioduoc.arriendos.service.cliente;
 
 import cl.portafolioduoc.arriendos.model.Cliente;
+import cl.portafolioduoc.arriendos.model.Login;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,4 +19,6 @@ public interface ClienteService {
     Map<String, Object> create(Cliente cliente);
 
     Map<String, Object> getByRut(String rut);
+
+    Map<String, Object> login(Login login);
 }

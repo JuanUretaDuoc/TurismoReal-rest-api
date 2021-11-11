@@ -3,6 +3,7 @@ package cl.portafolioduoc.arriendos.controller.cliente;
 import cl.portafolioduoc.arriendos.errorHandler.ErrorResponse;
 import cl.portafolioduoc.arriendos.errorHandler.NoSuchElementFoundException;
 import cl.portafolioduoc.arriendos.model.Cliente;
+import cl.portafolioduoc.arriendos.model.Login;
 import cl.portafolioduoc.arriendos.service.cliente.ClienteService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +18,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Slf4j
 @RequestMapping("cliente")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ClienteController {
 
 
@@ -46,13 +48,10 @@ public class ClienteController {
         return this.clienteService.create(cliente);
     }
 
-
-
-
-
-
-
-
+    @PostMapping("/login")
+    public Map<String, Object> login(@RequestBody Login login) {
+        return this.clienteService.login(login);
+    }
 
 
     @ExceptionHandler(NoSuchElementFoundException.class)

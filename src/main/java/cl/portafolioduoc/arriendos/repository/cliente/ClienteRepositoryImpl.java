@@ -2,6 +2,7 @@ package cl.portafolioduoc.arriendos.repository.cliente;
 
 import cl.portafolioduoc.arriendos.errorHandler.NoSuchElementFoundException;
 import cl.portafolioduoc.arriendos.model.Cliente;
+import cl.portafolioduoc.arriendos.model.Login;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlParameter;
@@ -50,14 +51,14 @@ public class ClienteRepositoryImpl implements ClienteRepository{
         simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
                 .withProcedureName("SP_CREAR_USUARIO")
                 .declareParameters(
-                        new SqlParameter("rut_usuario", Types.NVARCHAR),
+                        new SqlParameter("rut_usuario", Types.VARCHAR),
                         new SqlParameter("nombre", Types.NVARCHAR),
                         new SqlParameter("apaterno", Types.NVARCHAR),
                         new SqlParameter("amaterno", Types.NVARCHAR),
                         new SqlParameter("telefono", Types.NVARCHAR),
                         new SqlParameter("correo", Types.NVARCHAR),
                         new SqlParameter("contrasena", Types.NVARCHAR),
-                        new SqlParameter("id_rol", Types.NUMERIC)
+                        new SqlParameter("id_rol", Types.INTEGER)
                 );
 
         Map<String , Object> out = simpleJdbcCall.execute(
@@ -73,6 +74,11 @@ public class ClienteRepositoryImpl implements ClienteRepository{
 
         return out;
     }
+
+    //Login: usuario, contrasena
+
+
+
 
     @Override
     public Map<String, Object> getByRut(String rut) {
@@ -92,5 +98,22 @@ public class ClienteRepositoryImpl implements ClienteRepository{
         } else {
             throw new NoSuchElementFoundException("El usuario especificado no existe");
         }
+    }
+
+    @Override
+    public Map<String, Object> login(Login login) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_LOGIN")
+                .declareParameters(
+                        new SqlParameter("usuario", Types.NVARCHAR),
+                        new SqlParameter("contrasena", Types.NVARCHAR)
+                );
+
+        Map<String , Object> out = simpleJdbcCall.execute(
+                new MapSqlParameterSource("usuario", login.getUser()),
+                new MapSqlParameterSource("contrasena", login.getPass())
+        );
+
+        return out;
     }
 }
