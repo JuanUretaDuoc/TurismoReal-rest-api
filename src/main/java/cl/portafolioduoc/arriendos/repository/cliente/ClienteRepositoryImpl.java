@@ -90,17 +90,14 @@ public class ClienteRepositoryImpl implements ClienteRepository{
     @Override
     public Map<String, Object> login(Login login) {
         simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-                .withProcedureName("SP_LOGIN")
-                .declareParameters(
-                        new SqlParameter("usuario", Types.NVARCHAR),
-                        new SqlParameter("contrasena", Types.NVARCHAR)
-                );
+                .withProcedureName("SP_LOGIN");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("email", login.getEmail());
+        input.addValue("pass", login.getPass());
 
-        Map<String , Object> out = simpleJdbcCall.execute(
-                new MapSqlParameterSource("usuario", login.getEmail()),
-                new MapSqlParameterSource("contrasena", login.getPass())
-        );
 
-        return out;
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
     }
 }
