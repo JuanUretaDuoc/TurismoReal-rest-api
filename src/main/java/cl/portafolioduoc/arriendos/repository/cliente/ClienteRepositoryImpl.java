@@ -49,35 +49,22 @@ public class ClienteRepositoryImpl implements ClienteRepository{
     @Override
     public Map<String, Object> create(Cliente cliente) {
         simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-                .withProcedureName("SP_CREAR_USUARIO")
-                .declareParameters(
-                        new SqlParameter("rut_usuario", Types.VARCHAR),
-                        new SqlParameter("nombre", Types.NVARCHAR),
-                        new SqlParameter("apaterno", Types.NVARCHAR),
-                        new SqlParameter("amaterno", Types.NVARCHAR),
-                        new SqlParameter("telefono", Types.NVARCHAR),
-                        new SqlParameter("correo", Types.NVARCHAR),
-                        new SqlParameter("contrasena", Types.NVARCHAR),
-                        new SqlParameter("id_rol", Types.INTEGER)
-                );
+                .withProcedureName("SP_CREAR_USUARIO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("rut_usuario", cliente.getRut_usuario());
+        input.addValue("nombre", cliente.getNombre());
+        input.addValue("apaterno", cliente.getApaterno());
+        input.addValue("amaterno", cliente.getAmaterno());
+        input.addValue("telefono", cliente.getTelefono());
+        input.addValue("correo", cliente.getCorreo());
+        input.addValue("contrasena", cliente.getContrasena());
+        input.addValue("id_rol", cliente.getId_rol());
 
-        Map<String , Object> out = simpleJdbcCall.execute(
-                new MapSqlParameterSource("rut_usuario", cliente.getRut_usuario()),
-                new MapSqlParameterSource("nombre", cliente.getNombre()),
-                new MapSqlParameterSource("apaterno", cliente.getApaterno()),
-                new MapSqlParameterSource("amaterno", cliente.getAmaterno()),
-                new MapSqlParameterSource("telefono", cliente.getTelefono()),
-                new MapSqlParameterSource("correo", cliente.getCorreo()),
-                new MapSqlParameterSource("contrasena", cliente.getContrasena()),
-                new MapSqlParameterSource("id_rol", cliente.getId_rol())
-        );
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
 
-        return out;
+        return outMap;
+
     }
-
-    //Login: usuario, contrasena
-
-
 
 
     @Override
@@ -110,7 +97,7 @@ public class ClienteRepositoryImpl implements ClienteRepository{
                 );
 
         Map<String , Object> out = simpleJdbcCall.execute(
-                new MapSqlParameterSource("usuario", login.getUser()),
+                new MapSqlParameterSource("usuario", login.getEmail()),
                 new MapSqlParameterSource("contrasena", login.getPass())
         );
 

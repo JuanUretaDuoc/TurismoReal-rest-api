@@ -13,7 +13,6 @@ import java.util.Date;
 @NoArgsConstructor
 public class Cliente {
 
-    //private Long id_usuario;
     private String rut_usuario;
     private String nombre;
     private String apaterno;
@@ -21,7 +20,6 @@ public class Cliente {
     private String telefono;
     private String correo;
     private String contrasena;
-    //private Long estado;
     private Long id_rol;
 
 
