@@ -6,9 +6,6 @@ import cl.portafolioduoc.arriendos.repository.cliente.ClienteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -17,22 +14,13 @@ public class ClienteServiceImpl implements ClienteService {
     private final ClienteRepository clienteRepository;
 
     @Override
-    public Cliente getById(Long id) {
-        return clienteRepository.getById(id);
-    }
-
-    @Override
     public Map<String, Object> list() {
         return clienteRepository.list();
     }
 
-    @Override
-    public Boolean deleteById(Long id) {
-        return clienteRepository.deleteById(id);
-    }
 
     @Override
-    public Boolean update(Cliente cliente) {
+    public Map<String, Object> update(Cliente cliente) {
         return clienteRepository.update(cliente);
     }
 
@@ -49,6 +37,11 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public Map<String, Object> login(Login login) {
         return clienteRepository.login(login);
+    }
+
+    @Override
+    public Map<String, Object> eliminar(String rut) {
+        return clienteRepository.eliminar(rut);
     }
 
 

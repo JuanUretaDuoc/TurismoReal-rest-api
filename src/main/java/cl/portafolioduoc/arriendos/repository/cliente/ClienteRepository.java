@@ -9,17 +9,15 @@ import java.util.Map;
 
 public interface ClienteRepository {
 
-    Cliente getById(Long id);
-
     Map<String, Object> list();
 
-    Boolean deleteById(Long id);
-
-    Boolean update(Cliente cliente);
+    Map<String, Object> update(Cliente cliente);
 
     Map<String, Object> create(Cliente cliente);
 
     Map<String, Object> getByRut(String rut);
 
     Map<String, Object> login(Login login);
+
+    Map<String, Object> eliminar(String rut);
 }

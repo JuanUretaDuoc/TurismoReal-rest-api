@@ -21,6 +21,7 @@ public class Cliente {
     private String correo;
     private String contrasena;
     private Long id_rol;
+    private Long estado;
 
 
 }

@@ -24,11 +24,6 @@ public class ClienteController {
 
     private final ClienteService clienteService;
 
-    @GetMapping("/{id}")
-    public Cliente getById(@PathVariable(value = "id") Long id) {
-        return clienteService.getById(id);
-    }
-
     @GetMapping("")
     public ResponseEntity<Map<String, Object>> list() {
 
@@ -52,6 +47,16 @@ public class ClienteController {
     public Map<String, Object> login(@RequestBody Login login) {
         return this.clienteService.login(login);
     }
+
+    @DeleteMapping("/{rut}")
+    public Map<String, Object> eliminar(@PathVariable(value = "rut") String rut) {
+        return this.clienteService.eliminar(rut);
+    }
+    @PostMapping("/update")
+    public Map<String, Object> update(@RequestBody Cliente cliente) {
+        return this.clienteService.update(cliente);
+    }
+
 
 
     @ExceptionHandler(NoSuchElementFoundException.class)

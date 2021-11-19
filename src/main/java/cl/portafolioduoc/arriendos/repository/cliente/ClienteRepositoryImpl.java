@@ -23,11 +23,6 @@ public class ClienteRepositoryImpl implements ClienteRepository{
 
 
     @Override
-    public Cliente getById(Long id) {
-        return null;
-    }
-
-    @Override
     public Map<String, Object> list() {
         simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
                 .withProcedureName("SP_LISTAR_USUARIOS");
@@ -37,13 +32,23 @@ public class ClienteRepositoryImpl implements ClienteRepository{
     }
 
     @Override
-    public Boolean deleteById(Long id) {
-        return null;
-    }
+    public Map<String, Object> update(Cliente cliente) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_MODIFICA_USUARIO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("RUT", cliente.getRut_usuario());
+        input.addValue("NOMBRE", cliente.getNombre());
+        input.addValue("APATERNO", cliente.getApaterno());
+        input.addValue("AMATERNO", cliente.getAmaterno());
+        input.addValue("TELEFONO", cliente.getTelefono());
+        input.addValue("CORREO", cliente.getCorreo());
+        input.addValue("CONTRASENA", cliente.getContrasena());
+        input.addValue("ESTADO", cliente.getEstado());
+        input.addValue("ROL", cliente.getId_rol());
 
-    @Override
-    public Boolean update(Cliente cliente) {
-        return null;
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
     }
 
     @Override
@@ -100,4 +105,19 @@ public class ClienteRepositoryImpl implements ClienteRepository{
 
         return outMap;
     }
+
+    @Override
+    public Map<String, Object> eliminar(String rut) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_ELIMINAR_USUARIO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("RUT", rut);
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+
 }

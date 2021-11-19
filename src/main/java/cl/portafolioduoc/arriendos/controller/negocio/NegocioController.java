@@ -2,6 +2,7 @@ package cl.portafolioduoc.arriendos.controller.negocio;
 
 import cl.portafolioduoc.arriendos.model.ListarRoles;
 import cl.portafolioduoc.arriendos.model.ListarUsuarios;
+import cl.portafolioduoc.arriendos.model.TraeMenuSub;
 import cl.portafolioduoc.arriendos.model.TraerMenu;
 import cl.portafolioduoc.arriendos.service.Negocio.NegocioService;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,11 @@ public class NegocioController {
         return this.negocioService.traerMenu(traerMenu);
     }
 
+    @PostMapping("/TraerMenuSub")
+    public Map<String, Object> traerMenuSub(@RequestBody TraeMenuSub traerMenuSub) {
+        return this.negocioService.traerMenuSub(traerMenuSub);
+    }
+
     @PostMapping("/ListarRoles")
     public Map<String, Object> listarRoles(@RequestBody ListarRoles listarRoles) {
         return this.negocioService.listarRoles(listarRoles);
@@ -34,7 +40,15 @@ public class NegocioController {
         return this.negocioService.listarUsuarios(listarUsuarios);
     }
 
+    @GetMapping("/comunas/{id}")
+    public Map<String, Object> getComunaById(@PathVariable (value = "id") Long id) {
+        return this.negocioService.getComunaById(id);
+    }
 
+    @GetMapping("/comunas")
+    public Map<String, Object> listComuna() {
+        return this.negocioService.listComunas();
+    }
 
 
 

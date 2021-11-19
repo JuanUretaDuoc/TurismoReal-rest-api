@@ -2,6 +2,7 @@ package cl.portafolioduoc.arriendos.service.Negocio;
 
 import cl.portafolioduoc.arriendos.model.ListarRoles;
 import cl.portafolioduoc.arriendos.model.ListarUsuarios;
+import cl.portafolioduoc.arriendos.model.TraeMenuSub;
 import cl.portafolioduoc.arriendos.model.TraerMenu;
 import cl.portafolioduoc.arriendos.repository.Negocio.NegocioRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,11 @@ public class NegocioServiceImpl implements NegocioService{
     }
 
     @Override
+    public Map<String, Object> traerMenuSub(TraeMenuSub traerMenuSub) {
+        return negocioRepository.traerMenuSub(traerMenuSub);
+    }
+
+    @Override
     public Map<String, Object> listarRoles(ListarRoles listarRoles) {
         return negocioRepository.listarRoles(listarRoles);
     }
@@ -27,5 +33,15 @@ public class NegocioServiceImpl implements NegocioService{
     @Override
     public Map<String, Object> listarUsuarios(ListarUsuarios listarUsuarios) {
         return negocioRepository.listarUsuarios(listarUsuarios);
+    }
+
+    @Override
+    public Map<String, Object> getComunaById(Long id) {
+        return negocioRepository.getComunaById(id);
+    }
+
+    @Override
+    public Map<String, Object> listComunas() {
+        return negocioRepository.listComunas();
     }
 }
