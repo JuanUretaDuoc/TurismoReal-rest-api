@@ -1,9 +1,6 @@
 package cl.portafolioduoc.arriendos.service.Negocio;
 
-import cl.portafolioduoc.arriendos.model.ListarRoles;
-import cl.portafolioduoc.arriendos.model.ListarUsuarios;
-import cl.portafolioduoc.arriendos.model.TraeMenuSub;
-import cl.portafolioduoc.arriendos.model.TraerMenu;
+import cl.portafolioduoc.arriendos.model.*;
 
 import java.util.Map;
 
@@ -19,4 +16,12 @@ public interface NegocioService {
     Map<String, Object> getComunaById(Long id);
 
     Map<String, Object> listComunas();
+
+    Map<String, Object> crearUsuario(CrearUsuario crearUsuario);
+
+    Map<String, Object> infoUsuario(InfoUsuario infoUsuario);
+
+    Map<String, Object> modificarUsuario(ModificarUsuario modificarUsuario);
+
+    Map<String, Object> eliminarUsuario(EliminarUsuario eliminarUsuario);
 }

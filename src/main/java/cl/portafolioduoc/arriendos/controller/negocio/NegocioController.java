@@ -1,9 +1,6 @@
 package cl.portafolioduoc.arriendos.controller.negocio;
 
-import cl.portafolioduoc.arriendos.model.ListarRoles;
-import cl.portafolioduoc.arriendos.model.ListarUsuarios;
-import cl.portafolioduoc.arriendos.model.TraeMenuSub;
-import cl.portafolioduoc.arriendos.model.TraerMenu;
+import cl.portafolioduoc.arriendos.model.*;
 import cl.portafolioduoc.arriendos.service.Negocio.NegocioService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -50,6 +47,24 @@ public class NegocioController {
         return this.negocioService.listComunas();
     }
 
+    @PostMapping("/CrearUsuario")
+    public Map<String, Object> crearUsuario(@RequestBody CrearUsuario crearUsuario) {
+        return this.negocioService.crearUsuario(crearUsuario);
+    }
 
+    @PostMapping("/InfoUsuario")
+    public Map<String, Object> infoUsuario(@RequestBody InfoUsuario infoUsuario) {
+        return this.negocioService.infoUsuario(infoUsuario);
+    }
+
+    @PostMapping("/ModificarUsuario")
+    public Map<String, Object> modificarUsuario(@RequestBody ModificarUsuario modificarUsuario) {
+        return this.negocioService.modificarUsuario(modificarUsuario);
+    }
+
+    @PostMapping("/EliminarUsuario")
+    public Map<String, Object> eliminarUsuario(@RequestBody EliminarUsuario eliminarUsuario) {
+        return this.negocioService.eliminarUsuario(eliminarUsuario);
+    }
 
 }

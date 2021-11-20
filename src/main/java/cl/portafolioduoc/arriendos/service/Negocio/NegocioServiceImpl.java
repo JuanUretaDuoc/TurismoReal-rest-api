@@ -1,9 +1,6 @@
 package cl.portafolioduoc.arriendos.service.Negocio;
 
-import cl.portafolioduoc.arriendos.model.ListarRoles;
-import cl.portafolioduoc.arriendos.model.ListarUsuarios;
-import cl.portafolioduoc.arriendos.model.TraeMenuSub;
-import cl.portafolioduoc.arriendos.model.TraerMenu;
+import cl.portafolioduoc.arriendos.model.*;
 import cl.portafolioduoc.arriendos.repository.Negocio.NegocioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -43,5 +40,25 @@ public class NegocioServiceImpl implements NegocioService{
     @Override
     public Map<String, Object> listComunas() {
         return negocioRepository.listComunas();
+    }
+
+    @Override
+    public Map<String, Object> crearUsuario(CrearUsuario crearUsuario) {
+        return negocioRepository.crearUsuario(crearUsuario);
+    }
+
+    @Override
+    public Map<String, Object> infoUsuario(InfoUsuario infoUsuario) {
+        return negocioRepository.infoUsuario(infoUsuario);
+    }
+
+    @Override
+    public Map<String, Object> modificarUsuario(ModificarUsuario modificarUsuario) {
+        return negocioRepository.modificarUsuario(modificarUsuario);
+    }
+
+    @Override
+    public Map<String, Object> eliminarUsuario(EliminarUsuario eliminarUsuario) {
+        return negocioRepository.eliminarUsuario(eliminarUsuario);
     }
 }

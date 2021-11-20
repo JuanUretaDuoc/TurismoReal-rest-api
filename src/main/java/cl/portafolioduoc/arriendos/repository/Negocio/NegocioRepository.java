@@ -20,6 +20,11 @@ public interface NegocioRepository {
 
     Map<String, Object> listComunas();
 
+    Map<String, Object> crearUsuario(CrearUsuario crearUsuario);
 
+    Map<String, Object> infoUsuario(InfoUsuario infoUsuario);
 
+    Map<String, Object> modificarUsuario(ModificarUsuario modificarUsuario);
+
+    Map<String, Object> eliminarUsuario(EliminarUsuario eliminarUsuario);
 }

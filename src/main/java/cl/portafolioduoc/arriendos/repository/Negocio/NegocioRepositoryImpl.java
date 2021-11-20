@@ -60,9 +60,9 @@ public class NegocioRepositoryImpl implements NegocioRepository {
     @Override
     public Map<String, Object> listarUsuarios(ListarUsuarios listarUsuarios) {
         simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-                .withProcedureName("SP_WS_LISTAR_USUARIOS");
+                .withProcedureName("SP_LISTAR_USUARIOS");
         MapSqlParameterSource input = new MapSqlParameterSource();
-        input.addValue("estado", listarUsuarios.getEstado());
+        input.addValue("v_estado", listarUsuarios.getEstado());
 
         Map<String, Object> outMap = simpleJdbcCall.execute(input);
 
@@ -90,7 +90,74 @@ public class NegocioRepositoryImpl implements NegocioRepository {
         return out;
     }
 
+    @Override
+    public Map<String, Object> crearUsuario(CrearUsuario crearUsuario) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_CREAR_USUARIO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_rut", crearUsuario.getRut());
+        input.addValue("p_nombre", crearUsuario.getNombre());
+        input.addValue("p_apaterno", crearUsuario.getApaterno());
+        input.addValue("p_amaterno", crearUsuario.getAmaterno());
+        input.addValue("p_telefono", crearUsuario.getTelefono());
+        input.addValue("p_correo", crearUsuario.getCorreo());
+        input.addValue("p_pass", crearUsuario.getPass());
+        input.addValue("p_rol", crearUsuario.getRol());
 
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    @Override
+    public Map<String, Object> infoUsuario(InfoUsuario infoUsuario) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_CARGAR_INFO_USUARIO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_usuario", infoUsuario.getId_usuario());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    @Override
+    public Map<String, Object> modificarUsuario(ModificarUsuario modificarUsuario) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_MODIFICAR_USUARIO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_rut", modificarUsuario.getRut());
+        input.addValue("p_nombre", modificarUsuario.getNombre());
+        input.addValue("p_apaterno", modificarUsuario.getApaterno());
+        input.addValue("p_amaterno", modificarUsuario.getAmaterno());
+        input.addValue("p_telefono", modificarUsuario.getTelefono());
+        input.addValue("p_correo", modificarUsuario.getCorreo());
+        input.addValue("p_pass", modificarUsuario.getPass());
+        input.addValue("p_id_rol", modificarUsuario.getId_rol());
+        input.addValue("p_id_usuario", modificarUsuario.getId_usuario());
+        input.addValue("p_id_usuario_auth", modificarUsuario.getId_usuario_auth());
+        input.addValue("p_pass_auth", modificarUsuario.getPass_auth());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    @Override
+    public Map<String, Object> eliminarUsuario(EliminarUsuario eliminarUsuario) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_BORRAR_USUARIO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_usuario", eliminarUsuario.getId_usuario());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
 
 
 }
