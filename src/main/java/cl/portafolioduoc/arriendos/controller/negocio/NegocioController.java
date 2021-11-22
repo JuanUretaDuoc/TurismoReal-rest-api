@@ -67,4 +67,24 @@ public class NegocioController {
         return this.negocioService.eliminarUsuario(eliminarUsuario);
     }
 
+    @PostMapping("/ListarRegiones")
+    public Map<String, Object> listarRegiones(@RequestBody ListarRegiones listarRegiones) {
+        return this.negocioService.listarRegiones(listarRegiones);
+    }
+
+    @PostMapping("/ListarComunas")
+    public Map<String, Object> listarComunas(@RequestBody ListarComunas listarComunas) {
+        return this.negocioService.listarComunas(listarComunas);
+    }
+
+    @PostMapping("/ListarComunasRegion")
+    public Map<String, Object> listarComunasRegion(@RequestBody ListarComunasRegion listarComunasRegion) {
+        return this.negocioService.listarComunasRegion(listarComunasRegion);
+    }
+
+    @PostMapping("/CrearDepartamento")
+    public Map<String, Object> agregarDepartamento(@RequestBody AgregarDepartamento agregarDepartamento) {
+        return this.negocioService.agregarDepartamento(agregarDepartamento);
+    }
+
 }

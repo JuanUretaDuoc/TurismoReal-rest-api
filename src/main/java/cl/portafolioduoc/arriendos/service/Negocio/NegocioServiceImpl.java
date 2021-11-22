@@ -61,4 +61,24 @@ public class NegocioServiceImpl implements NegocioService{
     public Map<String, Object> eliminarUsuario(EliminarUsuario eliminarUsuario) {
         return negocioRepository.eliminarUsuario(eliminarUsuario);
     }
+
+    @Override
+    public Map<String, Object> listarRegiones(ListarRegiones listarRegiones) {
+        return negocioRepository.listarRegiones(listarRegiones);
+    }
+
+    @Override
+    public Map<String, Object> listarComunas(ListarComunas listarComunas) {
+        return negocioRepository.listarComunas(listarComunas);
+    }
+
+    @Override
+    public Map<String, Object> listarComunasRegion(ListarComunasRegion listarComunasRegion) {
+        return negocioRepository.listarComunasRegion(listarComunasRegion);
+    }
+
+    @Override
+    public Map<String, Object> agregarDepartamento(AgregarDepartamento agregarDepartamento) {
+        return negocioRepository.agregarDepartamento(agregarDepartamento);
+    }
 }
