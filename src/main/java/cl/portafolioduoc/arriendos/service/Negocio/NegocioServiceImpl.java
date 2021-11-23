@@ -81,4 +81,9 @@ public class NegocioServiceImpl implements NegocioService{
     public Map<String, Object> agregarDepartamento(AgregarDepartamento agregarDepartamento) {
         return negocioRepository.agregarDepartamento(agregarDepartamento);
     }
+
+    @Override
+    public Map<String, Object> listarDepartamentos(ListarDepartamentos listarDepartamentos) {
+        return negocioRepository.listarDepartamentos(listarDepartamentos);
+    }
 }

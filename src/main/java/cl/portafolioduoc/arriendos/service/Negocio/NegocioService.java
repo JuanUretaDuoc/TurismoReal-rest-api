@@ -32,4 +32,6 @@ public interface NegocioService {
     Map<String, Object> listarComunasRegion(ListarComunasRegion listarComunasRegion);
 
     Map<String, Object> agregarDepartamento(AgregarDepartamento agregarDepartamento);
+
+    Map<String, Object> listarDepartamentos(ListarDepartamentos listarDepartamentos);
 }

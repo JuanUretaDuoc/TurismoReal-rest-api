@@ -212,5 +212,17 @@ public class NegocioRepositoryImpl implements NegocioRepository {
         return outMap;
     }
 
+    public Map<String, Object> listarDepartamentos(ListarDepartamentos listarDepartamentos) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_LISTAR_DEPARTAMENTOS");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("v_estado", listarDepartamentos.getEstado());
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+
+        return outMap;
+    }
+
 
 }

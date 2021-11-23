@@ -87,4 +87,9 @@ public class NegocioController {
         return this.negocioService.agregarDepartamento(agregarDepartamento);
     }
 
+    @PostMapping("/ListarDepartamentos")
+    public Map<String, Object> listarDepartamentos(@RequestBody ListarDepartamentos listarDepartamentos) {
+        return this.negocioService.listarDepartamentos(listarDepartamentos);
+    }
+
 }
