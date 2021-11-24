@@ -12,6 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class ModificarUsuario {
     private String rut;
+    private String dv;
     private String nombre;
     private String apaterno;
     private String amaterno;

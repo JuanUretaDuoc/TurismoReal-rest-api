@@ -14,6 +14,7 @@ import java.util.Date;
 public class CrearUsuario {
 
     private String rut;
+    private String dv;
     private String nombre;
     private String apaterno;
     private String amaterno;

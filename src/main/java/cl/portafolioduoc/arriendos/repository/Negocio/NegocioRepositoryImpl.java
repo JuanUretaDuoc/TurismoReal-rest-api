@@ -96,6 +96,7 @@ public class NegocioRepositoryImpl implements NegocioRepository {
                 .withProcedureName("SP_CREAR_USUARIO");
         MapSqlParameterSource input = new MapSqlParameterSource();
         input.addValue("p_rut", crearUsuario.getRut());
+        input.addValue("p_dv", crearUsuario.getDv());
         input.addValue("p_nombre", crearUsuario.getNombre());
         input.addValue("p_apaterno", crearUsuario.getApaterno());
         input.addValue("p_amaterno", crearUsuario.getAmaterno());
@@ -129,6 +130,7 @@ public class NegocioRepositoryImpl implements NegocioRepository {
                 .withProcedureName("SP_MODIFICAR_USUARIO");
         MapSqlParameterSource input = new MapSqlParameterSource();
         input.addValue("p_rut", modificarUsuario.getRut());
+        input.addValue("p_dv", modificarUsuario.getDv());
         input.addValue("p_nombre", modificarUsuario.getNombre());
         input.addValue("p_apaterno", modificarUsuario.getApaterno());
         input.addValue("p_amaterno", modificarUsuario.getAmaterno());
