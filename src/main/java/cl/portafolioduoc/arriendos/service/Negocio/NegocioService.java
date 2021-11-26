@@ -25,6 +25,8 @@ public interface NegocioService {
 
     Map<String, Object> eliminarUsuario(EliminarUsuario eliminarUsuario);
 
+    Map<String, Object> reintegrarUsuario(ReintegrarUsuario reintegrarUsuario);
+
     Map<String, Object> listarRegiones(ListarRegiones listarRegiones);
 
     Map<String, Object> listarComunas(ListarComunas listarComunas);
@@ -34,4 +36,8 @@ public interface NegocioService {
     Map<String, Object> agregarDepartamento(AgregarDepartamento agregarDepartamento);
 
     Map<String, Object> listarDepartamentos(ListarDepartamentos listarDepartamentos);
+
+    Map<String, Object> infoDepartamento(InfoDepartamento infoDepartamento);
+
+    Map<String, Object> modificarDepartamento(ModificarDepartamento modificarDepartamento);
 }

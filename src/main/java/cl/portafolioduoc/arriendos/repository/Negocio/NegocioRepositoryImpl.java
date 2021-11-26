@@ -1,16 +1,12 @@
 package cl.portafolioduoc.arriendos.repository.Negocio;
 
-import cl.portafolioduoc.arriendos.errorHandler.NoSuchElementFoundException;
 import cl.portafolioduoc.arriendos.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Types;
-import java.util.ArrayList;
 import java.util.Map;
 
 @Repository
@@ -151,9 +147,26 @@ public class NegocioRepositoryImpl implements NegocioRepository {
     @Override
     public Map<String, Object> eliminarUsuario(EliminarUsuario eliminarUsuario) {
         simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-                .withProcedureName("SP_BORRAR_USUARIO");
+                .withProcedureName("SP_ELIMINAR_USUARIO");
         MapSqlParameterSource input = new MapSqlParameterSource();
         input.addValue("p_id_usuario", eliminarUsuario.getId_usuario());
+        input.addValue("p_id_usuario_auth", eliminarUsuario.getId_usuario_auth());
+        input.addValue("p_pass_auth", eliminarUsuario.getPass_auth());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    @Override
+    public Map<String, Object> reintegrarUsuario(ReintegrarUsuario reintegrarUsuario) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_REINTEGRAR_USUARIO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_usuario", reintegrarUsuario.getId_usuario());
+        input.addValue("p_id_usuario_auth", reintegrarUsuario.getId_usuario_auth());
+        input.addValue("p_pass_auth", reintegrarUsuario.getPass_auth());
 
 
         Map<String, Object> outMap = simpleJdbcCall.execute(input);
@@ -226,5 +239,42 @@ public class NegocioRepositoryImpl implements NegocioRepository {
         return outMap;
     }
 
+    @Override
+    public Map<String, Object> infoDepartamento(InfoDepartamento infoDepartamento) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_CARGAR_INFO_DEPARTAMENTO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_depto", infoDepartamento.getId_depto());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    @Override
+    public Map<String, Object> modificarDepartamento(ModificarDepartamento modificarDepartamento) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_MODIFICAR_USUARIO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_cod_interno", modificarDepartamento.getCod_interno());
+        input.addValue("p_nombre", modificarDepartamento.getNombre());
+        input.addValue("p_direccion", modificarDepartamento.getNombre());
+        input.addValue("p_precio", modificarDepartamento.getPrecio());
+        input.addValue("p_region", modificarDepartamento.getRegion());
+        input.addValue("p_comuna", modificarDepartamento.getComuna());
+        input.addValue("p_dormitorios", modificarDepartamento.getDormitorios());
+        input.addValue("p_banos", modificarDepartamento.getBanos());
+        input.addValue("p_capacidad", modificarDepartamento.getCapacidad());
+        input.addValue("p_descripcion_depto", modificarDepartamento.getDescripcion_depto());
+        input.addValue("id_depto", modificarDepartamento.getId_depto());
+        input.addValue("p_id_usuario_auth", modificarDepartamento.getId_usuario_auth());
+        input.addValue("p_pass_auth", modificarDepartamento.getPass_auth());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
 
 }

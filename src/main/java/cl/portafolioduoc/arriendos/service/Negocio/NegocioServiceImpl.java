@@ -63,6 +63,11 @@ public class NegocioServiceImpl implements NegocioService{
     }
 
     @Override
+    public Map<String, Object> reintegrarUsuario(ReintegrarUsuario reintegrarUsuario) {
+        return negocioRepository.reintegrarUsuario(reintegrarUsuario);
+    }
+
+    @Override
     public Map<String, Object> listarRegiones(ListarRegiones listarRegiones) {
         return negocioRepository.listarRegiones(listarRegiones);
     }
@@ -85,5 +90,15 @@ public class NegocioServiceImpl implements NegocioService{
     @Override
     public Map<String, Object> listarDepartamentos(ListarDepartamentos listarDepartamentos) {
         return negocioRepository.listarDepartamentos(listarDepartamentos);
+    }
+
+    @Override
+    public Map<String, Object> infoDepartamento(InfoDepartamento infoDepartamento) {
+        return negocioRepository.infoDepartamento(infoDepartamento);
+    }
+
+    @Override
+    public Map<String, Object> modificarDepartamento(ModificarDepartamento modificarDepartamento) {
+        return negocioRepository.modificarDepartamento(modificarDepartamento);
     }
 }

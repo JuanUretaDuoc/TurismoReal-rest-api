@@ -1,5 +1,4 @@
 package cl.portafolioduoc.arriendos.model;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +10,7 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AgregarDepartamento {
+public class ModificarDepartamento {
     private Integer cod_interno;
     private String nombre;
     private String direccion;
@@ -22,4 +21,8 @@ public class AgregarDepartamento {
     private Integer banos;
     private Integer capacidad;
     private String descripcion_depto;
+    private Integer id_depto;
+    private String pass_auth;
+    private Integer id_usuario_auth;
 }
+

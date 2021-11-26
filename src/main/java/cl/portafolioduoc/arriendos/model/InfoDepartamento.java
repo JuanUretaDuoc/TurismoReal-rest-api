@@ -10,8 +10,6 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class EliminarUsuario {
-    private Integer id_usuario;
-    private Integer id_usuario_auth;
-    private String pass_auth;
+public class InfoDepartamento {
+    private Integer id_depto;
 }
