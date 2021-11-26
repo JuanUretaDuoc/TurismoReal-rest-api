@@ -101,4 +101,14 @@ public class NegocioServiceImpl implements NegocioService{
     public Map<String, Object> modificarDepartamento(ModificarDepartamento modificarDepartamento) {
         return negocioRepository.modificarDepartamento(modificarDepartamento);
     }
+
+    @Override
+    public Map<String, Object> eliminarDepartamento(EliminarDepartamento eliminarDepartamento) {
+        return negocioRepository.eliminarDepartamento(eliminarDepartamento);
+    }
+
+    @Override
+    public Map<String, Object> reintegrarDepartamento(ReintegrarDepartamento reintegrarDepartamento) {
+        return negocioRepository.reintegrarDepartamento(reintegrarDepartamento);
+    }
 }

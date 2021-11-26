@@ -255,7 +255,7 @@ public class NegocioRepositoryImpl implements NegocioRepository {
     @Override
     public Map<String, Object> modificarDepartamento(ModificarDepartamento modificarDepartamento) {
         simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-                .withProcedureName("SP_MODIFICAR_USUARIO");
+                .withProcedureName("SP_MODIFICAR_DEPARTAMENTO");
         MapSqlParameterSource input = new MapSqlParameterSource();
         input.addValue("p_cod_interno", modificarDepartamento.getCod_interno());
         input.addValue("p_nombre", modificarDepartamento.getNombre());
@@ -277,4 +277,34 @@ public class NegocioRepositoryImpl implements NegocioRepository {
         return outMap;
     }
 
+    @Override
+    public Map<String, Object> eliminarDepartamento(EliminarDepartamento eliminarDepartamento) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_ELIMINAR_DEPARTAMENTO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_depto", eliminarDepartamento.getId_depto());
+        input.addValue("p_id_usuario_auth", eliminarDepartamento.getId_usuario_auth());
+        input.addValue("p_pass_auth", eliminarDepartamento.getPass_auth());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    @Override
+    public Map<String, Object> reintegrarDepartamento(ReintegrarDepartamento reintegrarDepartamento) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_REINTEGRAR_DEPARTAMENTO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_depto", reintegrarDepartamento.getId_depto());
+        input.addValue("p_id_usuario_auth", reintegrarDepartamento.getId_usuario_auth());
+        input.addValue("p_pass_auth", reintegrarDepartamento.getPass_auth());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
 }
+

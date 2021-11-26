@@ -43,4 +43,8 @@ public interface NegocioRepository {
     Map<String, Object> infoDepartamento(InfoDepartamento infoDepartamento);
 
     Map<String, Object> modificarDepartamento(ModificarDepartamento modificarDepartamento);
+
+    Map<String, Object> eliminarDepartamento(EliminarDepartamento eliminarDepartamento);
+
+    Map<String, Object> reintegrarDepartamento(ReintegrarDepartamento reintegrarDepartamento);
 }

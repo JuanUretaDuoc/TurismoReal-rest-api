@@ -106,4 +106,14 @@ public class NegocioController {
     public Map<String, Object> modificarDepartamento(@RequestBody ModificarDepartamento modificarDepartamento) {
         return this.negocioService.modificarDepartamento(modificarDepartamento);
     }
+
+    @PostMapping("/EliminarDepartamento")
+    public Map<String, Object> eliminarDepartamento(@RequestBody EliminarDepartamento eliminarDepartamento) {
+        return this.negocioService.eliminarDepartamento(eliminarDepartamento);
+    }
+
+    @PostMapping("/ReintegrarDepartamento")
+    public Map<String, Object> reintegrarDepartamento(@RequestBody ReintegrarDepartamento reintegrarDepartamento) {
+        return this.negocioService.reintegrarDepartamento(reintegrarDepartamento);
+    }
 }
