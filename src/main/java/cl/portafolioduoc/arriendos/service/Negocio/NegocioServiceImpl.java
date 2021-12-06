@@ -111,4 +111,10 @@ public class NegocioServiceImpl implements NegocioService{
     public Map<String, Object> reintegrarDepartamento(ReintegrarDepartamento reintegrarDepartamento) {
         return negocioRepository.reintegrarDepartamento(reintegrarDepartamento);
     }
+
+    @Override
+    public Map<String, Object> cargarImagen(CargarImagen cargarImagen) {
+        return negocioRepository.cargarImagen(cargarImagen);
+    }
+
 }

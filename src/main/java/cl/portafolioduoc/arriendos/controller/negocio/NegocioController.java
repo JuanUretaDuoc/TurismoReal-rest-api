@@ -116,4 +116,9 @@ public class NegocioController {
     public Map<String, Object> reintegrarDepartamento(@RequestBody ReintegrarDepartamento reintegrarDepartamento) {
         return this.negocioService.reintegrarDepartamento(reintegrarDepartamento);
     }
+
+    @PostMapping("/CargarImagen")
+    public Map<String, Object> cargarImagen(@RequestBody CargarImagen cargarImagen) {
+        return this.negocioService.cargarImagen(cargarImagen);
+    }
 }

@@ -44,4 +44,8 @@ public interface NegocioService {
     Map<String, Object> eliminarDepartamento(EliminarDepartamento eliminarDepartamento);
 
     Map<String, Object> reintegrarDepartamento(ReintegrarDepartamento reintegrarDepartamento);
+
+//    Map<String, Object> incio();
+
+    Map<String, Object> cargarImagen(CargarImagen cargarImagen);
 }

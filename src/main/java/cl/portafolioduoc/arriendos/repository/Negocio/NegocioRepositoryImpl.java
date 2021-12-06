@@ -306,5 +306,20 @@ public class NegocioRepositoryImpl implements NegocioRepository {
 
         return outMap;
     }
+
+    @Override
+    public Map<String, Object> cargarImagen(CargarImagen cargarImagen) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_CREAR_USUARIO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+            input.addValue("p_ruta", cargarImagen.getRuta());
+            input.addValue("p_nombre", cargarImagen.getNombre());
+            input.addValue("p_id_depto", cargarImagen.getId_depto());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
 }
 
