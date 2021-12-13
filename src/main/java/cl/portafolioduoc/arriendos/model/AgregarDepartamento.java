@@ -22,4 +22,6 @@ public class AgregarDepartamento {
     private Integer banos;
     private Integer capacidad;
     private String descripcion_depto;
+    private Integer cama;
+    private String descripcion_larga_depto;
 }

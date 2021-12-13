@@ -24,5 +24,7 @@ public class ModificarDepartamento {
     private Integer id_depto;
     private String pass_auth;
     private Integer id_usuario_auth;
+    private Integer cama;
+    private String descripcion_larga_depto;
 }
 

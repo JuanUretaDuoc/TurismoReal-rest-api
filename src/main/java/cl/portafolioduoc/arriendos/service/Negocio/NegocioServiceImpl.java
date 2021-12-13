@@ -117,4 +117,29 @@ public class NegocioServiceImpl implements NegocioService{
         return negocioRepository.cargarImagen(cargarImagen);
     }
 
+    @Override
+    public Map<String, Object> infoRegion(InfoRegion infoRegion) {
+        return negocioRepository.infoRegion(infoRegion);
+    }
+
+    @Override
+    public Map<String, Object> infoComuna(InfoComuna infoComuna) {
+        return negocioRepository.infoComuna(infoComuna);
+    }
+
+    @Override
+    public Map<String, Object> crearServicio(CrearServicio crearServicio) {
+        return negocioRepository.crearServicio(crearServicio);
+    }
+
+    @Override
+    public Map<String, Object> modificarServicio(ModificarServicio modificarServicio) {
+        return negocioRepository.modificarServicio(modificarServicio);
+    }
+
+    @Override
+    public Map<String, Object> listarServicio(ListarServicio listarServicio) {
+        return negocioRepository.listarServicio(listarServicio);
+    }
+
 }

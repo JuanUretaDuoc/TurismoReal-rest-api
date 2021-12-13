@@ -49,4 +49,14 @@ public interface NegocioRepository {
     Map<String, Object> reintegrarDepartamento(ReintegrarDepartamento reintegrarDepartamento);
 
     Map<String, Object> cargarImagen(CargarImagen cargarImagen);
+
+    Map<String, Object> infoRegion(InfoRegion infoRegion);
+
+    Map<String, Object> infoComuna(InfoComuna infoComuna);
+
+    Map<String, Object> crearServicio(CrearServicio crearServicio);
+
+    Map<String, Object> modificarServicio(ModificarServicio modificarServicio);
+
+    Map<String, Object> listarServicio(ListarServicio listarServicio);
 }

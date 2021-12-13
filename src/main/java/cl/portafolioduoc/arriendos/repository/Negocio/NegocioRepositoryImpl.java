@@ -221,6 +221,8 @@ public class NegocioRepositoryImpl implements NegocioRepository {
         input.addValue("p_banos", agregarDepartamento.getBanos());
         input.addValue("p_capacidad", agregarDepartamento.getCapacidad());
         input.addValue("p_descripcion_depto", agregarDepartamento.getDescripcion_depto());
+        input.addValue("p_cama", agregarDepartamento.getCama());
+        input.addValue("p_descripcion_larga_depto", agregarDepartamento.getDescripcion_larga_depto());
 
         Map<String, Object> outMap = simpleJdbcCall.execute(input);
 
@@ -257,9 +259,9 @@ public class NegocioRepositoryImpl implements NegocioRepository {
         simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
                 .withProcedureName("SP_MODIFICAR_DEPARTAMENTO");
         MapSqlParameterSource input = new MapSqlParameterSource();
-        input.addValue("p_cod_interno", modificarDepartamento.getCod_interno());
+//        input.addValue("p_cod_interno", modificarDepartamento.getCod_interno());
         input.addValue("p_nombre", modificarDepartamento.getNombre());
-        input.addValue("p_direccion", modificarDepartamento.getNombre());
+        input.addValue("p_direccion", modificarDepartamento.getDireccion());
         input.addValue("p_precio", modificarDepartamento.getPrecio());
         input.addValue("p_region", modificarDepartamento.getRegion());
         input.addValue("p_comuna", modificarDepartamento.getComuna());
@@ -267,9 +269,11 @@ public class NegocioRepositoryImpl implements NegocioRepository {
         input.addValue("p_banos", modificarDepartamento.getBanos());
         input.addValue("p_capacidad", modificarDepartamento.getCapacidad());
         input.addValue("p_descripcion_depto", modificarDepartamento.getDescripcion_depto());
-        input.addValue("id_depto", modificarDepartamento.getId_depto());
+        input.addValue("p_id_depto", modificarDepartamento.getId_depto());
         input.addValue("p_id_usuario_auth", modificarDepartamento.getId_usuario_auth());
         input.addValue("p_pass_auth", modificarDepartamento.getPass_auth());
+        input.addValue("p_cama", modificarDepartamento.getCama());
+        input.addValue("p_descripcion_larga_depto", modificarDepartamento.getDescripcion_larga_depto());
 
 
         Map<String, Object> outMap = simpleJdbcCall.execute(input);
@@ -318,6 +322,70 @@ public class NegocioRepositoryImpl implements NegocioRepository {
 
 
         Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    @Override
+    public Map<String, Object> infoRegion(InfoRegion infoRegion) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_CARGAR_INFO_REGION");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_region", infoRegion.getId_region());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    @Override
+    public Map<String, Object> infoComuna(InfoComuna infoComuna) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_CARGAR_INFO_COMUNA");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_comuna", infoComuna.getId_comuna());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    @Override
+    public Map<String, Object> crearServicio(CrearServicio crearServicio) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_CREAR_SERVICIO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_nombre", crearServicio.getNombre());
+        input.addValue("p_descripcion", crearServicio.getDescripcion());
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    public Map<String, Object> modificarServicio(ModificarServicio modificarServicio) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_MODIFICAR_SERVICIO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_servicios", modificarServicio.getId_servicios());
+        input.addValue("p_nombre", modificarServicio.getNombre());
+        input.addValue("p_descripcion", modificarServicio.getDescripcion());
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    @Override
+    public Map<String, Object> listarServicio(ListarServicio listarServicio) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_LISTAR_SERVICIOS");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_servicios", listarServicio.getId_servicios());
+
+        Map<String, Object> outMap = simpleJdbcCall.execute();
 
         return outMap;
     }

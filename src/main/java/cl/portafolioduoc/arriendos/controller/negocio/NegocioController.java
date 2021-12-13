@@ -121,4 +121,29 @@ public class NegocioController {
     public Map<String, Object> cargarImagen(@RequestBody CargarImagen cargarImagen) {
         return this.negocioService.cargarImagen(cargarImagen);
     }
+
+    @PostMapping("/InfoRegion")
+    public Map<String, Object> infoRegion(@RequestBody InfoRegion infoRegion) {
+        return this.negocioService.infoRegion(infoRegion);
+    }
+
+    @PostMapping("/InfoComuna")
+    public Map<String, Object> infoComuna(@RequestBody InfoComuna infoComuna) {
+        return this.negocioService.infoComuna(infoComuna);
+    }
+
+    @PostMapping("/CrearServicio")
+    public Map<String, Object> crearServicio(@RequestBody CrearServicio crearServicio) {
+        return this.negocioService.crearServicio(crearServicio);
+    }
+
+    @PostMapping("/ModificarServicio")
+    public Map<String, Object> modificarServicio(@RequestBody ModificarServicio modificarServicio) {
+        return this.negocioService.modificarServicio(modificarServicio);
+    }
+
+    @PostMapping("/ListarServicio")
+    public Map<String, Object> listarServicio(@RequestBody ListarServicio listarServicio) {
+        return this.negocioService.listarServicio(listarServicio);
+    }
 }
