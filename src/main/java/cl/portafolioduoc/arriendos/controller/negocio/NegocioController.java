@@ -146,4 +146,12 @@ public class NegocioController {
     public Map<String, Object> listarServicio(@RequestBody ListarServicio listarServicio) {
         return this.negocioService.listarServicio(listarServicio);
     }
+
+    @PostMapping("/CrearReserva")
+    public Map<String, Object> crearReserva(@RequestBody CrearReserva crearReserva) {
+        return this.negocioService.crearReserva(crearReserva);
+    }
+
+
+
 }

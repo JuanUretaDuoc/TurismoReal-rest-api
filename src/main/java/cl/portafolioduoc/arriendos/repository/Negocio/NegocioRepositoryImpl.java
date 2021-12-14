@@ -389,5 +389,24 @@ public class NegocioRepositoryImpl implements NegocioRepository {
 
         return outMap;
     }
+
+    @Override
+    public Map<String, Object> crearReserva(CrearReserva crearReserva) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_CREAR_RESERVA");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_fecha_inicio", crearReserva.getFecha_inicio());
+        input.addValue("p_fecha_termino", crearReserva.getFecha_termino());
+        input.addValue("p_total", crearReserva.getTotal());
+        input.addValue("p_id_usuario", crearReserva.getId_usuario());
+        input.addValue("p_id_depto", crearReserva.getId_depto());
+        input.addValue("p_cant_huespedes", crearReserva.getCant_huespedes());
+        input.addValue("p_monto_pago", crearReserva.getMonto_pago());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
 }
 
