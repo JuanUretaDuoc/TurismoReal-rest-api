@@ -157,6 +157,21 @@ public class NegocioController {
         return this.negocioService.consultarDisponibilidad(consultarDisponibilidad);
     }
 
+    @PostMapping("/VerReservasUsuario")
+    public Map<String, Object> crearReserva(@RequestBody VerReservasUsuario verReservasUsuario) {
+        return this.negocioService.verReservasUsuario(verReservasUsuario);
+    }
+
+    @PostMapping("/VerReservasDepartamento")
+    public Map<String, Object> crearReserva(@RequestBody VerReservasDepartamento verReservasDepartamento) {
+        return this.negocioService.verReservasDepartamento(verReservasDepartamento);
+    }
+
+    @PostMapping("/CancelarReserva")
+    public Map<String, Object> crearReserva(@RequestBody CancelarReserva cancelarReserva) {
+        return this.negocioService.cancelarReserva(cancelarReserva);
+    }
+
 
 
 }

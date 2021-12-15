@@ -423,5 +423,43 @@ public class NegocioRepositoryImpl implements NegocioRepository {
 
         return outMap;
     }
+
+    public Map<String, Object> verReservasUsuario(VerReservasUsuario verReservasUsuario) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_VER_RESERVAS_USUARIO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_usuario", verReservasUsuario.getId_usuario());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    public Map<String, Object> verReservasDepartamento(VerReservasDepartamento verReservasDepartamento) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_VER_RESERVAS_DEPARTAMENTO");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_depto", verReservasDepartamento.getId_depto());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    public Map<String, Object> cancelarReserva(CancelarReserva cancelarReserva) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_CANCELAR_RESERVA");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_reserva", cancelarReserva.getId_reserva());
+        input.addValue("p_id_depto", cancelarReserva.getId_depto());
+        input.addValue("p_id_usuario", cancelarReserva.getId_usuario());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
 }
 

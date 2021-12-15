@@ -152,4 +152,19 @@ public class NegocioServiceImpl implements NegocioService{
         return negocioRepository.consultarDisponibilidad(consultarDisponibilidad);
     }
 
+    @Override
+    public Map<String, Object> verReservasUsuario(VerReservasUsuario verReservasUsuario) {
+        return negocioRepository.verReservasUsuario(verReservasUsuario);
+    }
+
+    @Override
+    public Map<String, Object> verReservasDepartamento(VerReservasDepartamento verReservasDepartamento) {
+        return negocioRepository.verReservasDepartamento(verReservasDepartamento);
+    }
+
+    @Override
+    public Map<String, Object> cancelarReserva(CancelarReserva cancelarReserva) {
+        return negocioRepository.cancelarReserva(cancelarReserva);
+    }
+
 }

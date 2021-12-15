@@ -63,4 +63,10 @@ public interface NegocioRepository {
     Map<String, Object> crearReserva(CrearReserva crearReserva);
 
     Map<String, Object> consultarDisponibilidad(ConsultarDisponibilidad consultarDisponibilidad);
+
+    Map<String, Object> verReservasUsuario(VerReservasUsuario verReservasUsuario);
+
+    Map<String, Object> verReservasDepartamento(VerReservasDepartamento verReservasDepartamento);
+
+    Map<String, Object> cancelarReserva(CancelarReserva cancelarReserva);
 }
