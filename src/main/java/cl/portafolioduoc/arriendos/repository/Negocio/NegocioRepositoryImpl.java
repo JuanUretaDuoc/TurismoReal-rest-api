@@ -408,5 +408,20 @@ public class NegocioRepositoryImpl implements NegocioRepository {
 
         return outMap;
     }
+
+    @Override
+    public Map<String, Object> consultarDisponibilidad(ConsultarDisponibilidad consultarDisponibilidad) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_CONSULTAR_DISPONIBILIDAD");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_fecha_inicio", consultarDisponibilidad.getFecha_inicio());
+        input.addValue("p_fecha_termino", consultarDisponibilidad.getFecha_termino());
+        input.addValue("p_id_depto", consultarDisponibilidad.getId_depto());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
 }
 

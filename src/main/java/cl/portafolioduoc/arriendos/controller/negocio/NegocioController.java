@@ -152,6 +152,11 @@ public class NegocioController {
         return this.negocioService.crearReserva(crearReserva);
     }
 
+    @PostMapping("/ConsultarDisponibilidad")
+    public Map<String, Object> crearReserva(@RequestBody ConsultarDisponibilidad consultarDisponibilidad) {
+        return this.negocioService.consultarDisponibilidad(consultarDisponibilidad);
+    }
+
 
 
 }

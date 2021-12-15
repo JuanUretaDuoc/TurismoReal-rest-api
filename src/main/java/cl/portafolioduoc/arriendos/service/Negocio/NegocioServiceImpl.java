@@ -147,4 +147,9 @@ public class NegocioServiceImpl implements NegocioService{
         return negocioRepository.crearReserva(crearReserva);
     }
 
+    @Override
+    public Map<String, Object> consultarDisponibilidad(ConsultarDisponibilidad consultarDisponibilidad) {
+        return negocioRepository.consultarDisponibilidad(consultarDisponibilidad);
+    }
+
 }
