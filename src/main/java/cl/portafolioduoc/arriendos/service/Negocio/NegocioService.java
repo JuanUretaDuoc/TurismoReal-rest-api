@@ -68,4 +68,6 @@ public interface NegocioService {
     Map<String, Object> verReservasDepartamento(VerReservasDepartamento verReservasDepartamento);
 
     Map<String, Object> cancelarReserva(CancelarReserva cancelarReserva);
+
+    Map<String, Object> listarTours(ListarTours listarTours);
 }

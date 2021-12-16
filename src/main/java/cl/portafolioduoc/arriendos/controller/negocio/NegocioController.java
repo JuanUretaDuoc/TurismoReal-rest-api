@@ -172,6 +172,11 @@ public class NegocioController {
         return this.negocioService.cancelarReserva(cancelarReserva);
     }
 
+    @PostMapping("/ListarTours")
+    public Map<String, Object> listarTours(@RequestBody ListarTours listarTours) {
+        return this.negocioService.listarTours(listarTours);
+    }
+
 
 
 }

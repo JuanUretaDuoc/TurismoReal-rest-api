@@ -167,4 +167,9 @@ public class NegocioServiceImpl implements NegocioService{
         return negocioRepository.cancelarReserva(cancelarReserva);
     }
 
+    @Override
+    public Map<String, Object> listarTours(ListarTours listarTours) {
+        return negocioRepository.listarTours(listarTours);
+    }
+
 }
