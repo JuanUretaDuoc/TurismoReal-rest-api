@@ -76,4 +76,20 @@ public interface NegocioService {
     Map<String, Object> agendarTour(AgendarTour agendarTour);
 
     Map<String, Object> listarReservas(ListarReservas listarReservas);
+
+    Map<String, Object> listarTransportes(ListarTransportes listarTransportes);
+
+    Map<String, Object> agregarTransporte(AgregarTransporte agregarTransporte);
+
+    Map<String, Object> agendarTransporte(AgendarTransporte agendarTransporte);
+
+    Map<String, Object> ingresarCheckIn(IngresarCheckIn ingresarCheckIn);
+
+    Map<String, Object> ingresarCheckOut(IngresarCheckOut ingresarCheckOut);
+
+    Map<String, Object> registrarMulta(RegistrarMulta registrarMulta);
+
+    Map<String, Object> pagoPendiente(PagoPendiente pagoPendiente);
+
+    Map<String, Object> pagoMulta(PagoMulta pagoMulta);
 }

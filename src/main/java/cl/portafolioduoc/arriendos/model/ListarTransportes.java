@@ -10,6 +10,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ListarTours {
+public class ListarTransportes {
     private Integer id_depto;
 }

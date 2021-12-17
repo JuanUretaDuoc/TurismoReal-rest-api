@@ -187,4 +187,43 @@ public class NegocioServiceImpl implements NegocioService{
         return negocioRepository.listarReservas(listarReservas);
     }
 
+    @Override
+    public Map<String, Object> listarTransportes(ListarTransportes listarTransportes) {
+        return negocioRepository.listarTransportes(listarTransportes);
+    }
+
+    @Override
+    public Map<String, Object> agregarTransporte(AgregarTransporte agregarTransporte) {
+        return negocioRepository.agregarTransporte(agregarTransporte);
+    }
+
+    @Override
+    public Map<String, Object> agendarTransporte(AgendarTransporte agendarTransporte) {
+        return negocioRepository.agendarTransporte(agendarTransporte);
+    }
+
+    @Override
+    public Map<String, Object> ingresarCheckIn(IngresarCheckIn ingresarCheckIn) {
+        return negocioRepository.ingresarCheckIn(ingresarCheckIn);
+    }
+
+    @Override
+    public Map<String, Object> ingresarCheckOut(IngresarCheckOut ingresarCheckOut) {
+        return negocioRepository.ingresarCheckOut(ingresarCheckOut);
+    }
+
+    @Override
+    public Map<String, Object> registrarMulta(RegistrarMulta registrarMulta) {
+        return negocioRepository.registrarMulta(registrarMulta);
+    }
+
+    @Override
+    public Map<String, Object> pagoPendiente(PagoPendiente pagoPendiente) {
+        return negocioRepository.pagoPendiente(pagoPendiente);
+    }
+
+    @Override
+    public Map<String, Object> pagoMulta(PagoMulta pagoMulta) {
+        return negocioRepository.pagoMulta(pagoMulta);
+    }
 }

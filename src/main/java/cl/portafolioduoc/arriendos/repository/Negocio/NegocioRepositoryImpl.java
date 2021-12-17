@@ -520,5 +520,121 @@ public class NegocioRepositoryImpl implements NegocioRepository {
         return outMap;
     }
 
+    public Map<String, Object> listarTransportes(ListarTransportes listarTransportes) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_LISTAR_TRANSPORTE");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_depto", listarTransportes.getId_depto());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    public Map<String, Object> agregarTransporte(AgregarTransporte agregarTransporte) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_AGREGAR_TRANSPORTE");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_depto", agregarTransporte.getId_depto());
+        input.addValue("p_id_vehiculo", agregarTransporte.getId_vehiculo());
+        input.addValue("p_origen", agregarTransporte.getOrigen());
+        input.addValue("p_destino", agregarTransporte.getDestino());
+        input.addValue("p_precio", agregarTransporte.getPrecio());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+
+    public Map<String, Object> agendarTransporte(AgendarTransporte agendarTransporte) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_AGENDAR_TRANSPORTE");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_cliente", agendarTransporte.getId_cliente());
+        input.addValue("p_id_reserva", agendarTransporte.getId_reserva());
+        input.addValue("p_id_transporte", agendarTransporte.getId_transporte());
+        input.addValue("p_hora", agendarTransporte.getHora());
+        input.addValue("p_fecha", agendarTransporte.getFecha());
+        input.addValue("p_fecha_inicio", agendarTransporte.getFecha_inicio());
+        input.addValue("p_fecha_termino", agendarTransporte.getFecha_termino());
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    public Map<String, Object> ingresarCheckIn(IngresarCheckIn ingresarCheckIn) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_INGRESAR_CHECK_IN");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_reserva", ingresarCheckIn.getId_reserva());
+        input.addValue("p_id_funcionario", ingresarCheckIn.getId_funcionario());
+        input.addValue("p_id_depto", ingresarCheckIn.getId_depto());
+        input.addValue("p_descripcion", ingresarCheckIn.getDescripcion());
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    public Map<String, Object> ingresarCheckOut(IngresarCheckOut ingresarCheckOut) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_INGRESAR_CHECK_OUT");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_reserva", ingresarCheckOut.getId_reserva());
+        input.addValue("p_id_funcionario", ingresarCheckOut.getId_funcionario());
+        input.addValue("p_id_depto", ingresarCheckOut.getId_depto());
+        input.addValue("p_descripcion", ingresarCheckOut.getDescripcion());
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    public Map<String, Object> registrarMulta(RegistrarMulta registrarMulta) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_REGISTRAR_MULTA");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_reserva", registrarMulta.getId_reserva());
+        input.addValue("p_total", registrarMulta.getTotal());
+        input.addValue("p_descripcion", registrarMulta.getDescripcion());
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    public Map<String, Object> pagoPendiente(PagoPendiente pagoPendiente) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_PAGO_PENDIENTE");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_reserva", pagoPendiente.getId_reserva());
+        input.addValue("p_monto", pagoPendiente.getMonto());
+        input.addValue("p_id_funcionario", pagoPendiente.getId_funcionario());
+        input.addValue("p_id_depto", pagoPendiente.getId_depto());
+        input.addValue("p_descripcion", pagoPendiente.getDescripcion());
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    public Map<String, Object> pagoMulta(PagoMulta pagoMulta) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_PAGO_MULTA");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_reserva", pagoMulta.getId_reserva());
+        input.addValue("p_monto", pagoMulta.getMonto());
+        input.addValue("p_id_funcionario", pagoMulta.getId_funcionario());
+        input.addValue("p_id_depto", pagoMulta.getId_depto());
+        input.addValue("p_descripcion", pagoMulta.getDescripcion());
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
 }
 
