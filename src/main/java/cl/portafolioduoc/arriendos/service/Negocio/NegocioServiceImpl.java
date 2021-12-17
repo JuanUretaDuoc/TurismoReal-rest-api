@@ -172,4 +172,14 @@ public class NegocioServiceImpl implements NegocioService{
         return negocioRepository.listarTours(listarTours);
     }
 
+    @Override
+    public Map<String, Object> agregarTour(AgregarTour agregarTour) {
+        return negocioRepository.agregarTour(agregarTour);
+    }
+
+    @Override
+    public Map<String, Object> agendarTour(AgendarTour agendarTour) {
+        return negocioRepository.agendarTour(agendarTour);
+    }
+
 }

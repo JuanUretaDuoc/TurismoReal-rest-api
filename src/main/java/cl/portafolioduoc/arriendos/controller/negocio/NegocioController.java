@@ -177,6 +177,15 @@ public class NegocioController {
         return this.negocioService.listarTours(listarTours);
     }
 
+    @PostMapping("/AgregarTour")
+    public Map<String, Object> AgregarTour(@RequestBody AgregarTour agregarTour) {
+        return this.negocioService.agregarTour(agregarTour);
+    }
+
+    @PostMapping("/AgendarTour")
+    public Map<String, Object> agendarTour(@RequestBody AgendarTour agendarTour) {
+        return this.negocioService.agendarTour(agendarTour);
+    }
 
 
 }

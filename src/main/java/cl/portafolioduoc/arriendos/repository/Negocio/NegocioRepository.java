@@ -71,4 +71,8 @@ public interface NegocioRepository {
     Map<String, Object> cancelarReserva(CancelarReserva cancelarReserva);
 
     Map<String, Object> listarTours(ListarTours listarTours);
+
+    Map<String, Object> agregarTour(AgregarTour agregarTour);
+
+    Map<String, Object> agendarTour(AgendarTour agendarTour);
 }

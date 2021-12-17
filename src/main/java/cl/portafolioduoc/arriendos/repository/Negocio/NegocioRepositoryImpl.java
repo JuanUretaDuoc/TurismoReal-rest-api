@@ -473,5 +473,41 @@ public class NegocioRepositoryImpl implements NegocioRepository {
 
         return outMap;
     }
+
+    public Map<String, Object> agregarTour(AgregarTour agregarTour) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_AGREGAR_TOUR");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_nombre_tour", agregarTour.getNombre_tour());
+        input.addValue("p_lugar", agregarTour.getLugar());
+        input.addValue("p_descripcion", agregarTour.getDescripcion());
+        input.addValue("p_hora_inicio", agregarTour.getHora_inicio());
+        input.addValue("p_hora_termino", agregarTour.getHora_termino());
+        input.addValue("p_precio", agregarTour.getPrecio());
+
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
+    public Map<String, Object> agendarTour(AgendarTour agendarTour) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_AGENDAR_TOUR");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_id_cliente", agendarTour.getId_cliente());
+        input.addValue("p_id_reserva", agendarTour.getId_reserva());
+        input.addValue("p_id_tour", agendarTour.getId_tour());
+        input.addValue("p_cant_personas", agendarTour.getCant_personas());
+        input.addValue("p_total", agendarTour.getTotal());
+        input.addValue("p_fecha", agendarTour.getFecha());
+        input.addValue("p_fecha_inicio", agendarTour.getFecha_inicio());
+        input.addValue("p_fecha_termino", agendarTour.getFecha_termino());
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
 }
 
