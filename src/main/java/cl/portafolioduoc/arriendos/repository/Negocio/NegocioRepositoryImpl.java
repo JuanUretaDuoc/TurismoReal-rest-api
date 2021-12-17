@@ -509,5 +509,16 @@ public class NegocioRepositoryImpl implements NegocioRepository {
         return outMap;
     }
 
+    public Map<String, Object> listarReservas(ListarReservas listarReservas) {
+        simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SP_LISTAR_RESERVAS");
+        MapSqlParameterSource input = new MapSqlParameterSource();
+        input.addValue("p_estado", listarReservas.getEstado());
+
+        Map<String, Object> outMap = simpleJdbcCall.execute(input);
+
+        return outMap;
+    }
+
 }
 

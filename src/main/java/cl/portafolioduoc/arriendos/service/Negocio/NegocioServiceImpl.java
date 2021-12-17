@@ -182,4 +182,9 @@ public class NegocioServiceImpl implements NegocioService{
         return negocioRepository.agendarTour(agendarTour);
     }
 
+    @Override
+    public Map<String, Object> listarReservas(ListarReservas listarReservas) {
+        return negocioRepository.listarReservas(listarReservas);
+    }
+
 }

@@ -187,5 +187,10 @@ public class NegocioController {
         return this.negocioService.agendarTour(agendarTour);
     }
 
+    @PostMapping("/ListarReservas")
+    public Map<String, Object> listarReservas(@RequestBody ListarReservas listarReservas) {
+        return this.negocioService.listarReservas(listarReservas);
+    }
+
 
 }
